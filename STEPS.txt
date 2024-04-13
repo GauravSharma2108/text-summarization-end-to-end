@@ -1,0 +1,7 @@
+create repo
+create virtual env
+run the template.py file to create the project structure
+create the setup.py file to initialize local libraries
+update requirements.txt and install dependencies. dont forget to keep "-e ." in the end to initialize setup.py
+create custom logger by modifying logging init file
+create common utils
