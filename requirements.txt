@@ -2,6 +2,7 @@ transformers
 transformers[sentencepiece]
 datasets
 evaluate
+accelerate
 sacrebleu 
 rouge-score 
 py7zr
