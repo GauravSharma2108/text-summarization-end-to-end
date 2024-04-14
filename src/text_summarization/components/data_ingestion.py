@@ -34,6 +34,7 @@ class DataIngestion:
         """
         Extracts the zip file to the specified directory
         """
+        logger.info(f"Extracting file: {self.config.local_data_file} to {self.config.unzip_dir}")
         unzip_path = self.config.unzip_dir
         os.makedirs(unzip_path, exist_ok=True)
         with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:

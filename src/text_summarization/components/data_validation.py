@@ -8,6 +8,7 @@ class DataValidation:
     
     def validate_all_files_exist(self)-> bool:
         try:
+            logger.info("Validating all files exist")
             validation_status = None
             all_files = os.listdir(os.path.join("artifacts","data_ingestion","samsum_dataset"))
 
@@ -20,6 +21,11 @@ class DataValidation:
                     validation_status = True
                     with open(self.config.status_file, 'w') as f:
                         f.write(f"Validation status: {validation_status}")
+            if validation_status:
+                logger.info("Validation true")
+            else:
+                logger.info("Validation false")
             return validation_status
         except Exception as e:
+            logger.error(f"Validation failed: {e}")
             raise e

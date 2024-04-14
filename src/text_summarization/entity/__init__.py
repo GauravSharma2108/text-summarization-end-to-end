@@ -19,3 +19,13 @@ class DataValidationConfig:
     root_dir: Path
     status_file: Path
     required_files: list
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    """
+    DataTransformationConfig class is used to store the configuration for the data transformation process.
+    """
+    root_dir: Path
+    data_path: Path
+    transformed_path: Path
+    tokenizer_name: Path

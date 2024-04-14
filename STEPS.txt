@@ -10,6 +10,7 @@ Perform the complete project in a notebook first, so we have everything we have 
 start working on the modules:
 1. data ingestion
 2. data validation
+3. data transformation
 
 
 for each of these steps, do the following
@@ -17,7 +18,7 @@ Update config.yaml
 Update params.yaml
 Update entity
 Update the configuration manager in src config
-update the conponents
+update the components
 update the pipeline
 update the main.py
 update the app.py
