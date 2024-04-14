@@ -3,9 +3,11 @@ import yaml
 from text_summarization.logging import logger
 from pathlib import Path
 from typing import Any, Dict, List
+from box import ConfigBox
+from ensure import ensure_annotations
 
-
-def read_yaml(path_to_yaml: str) -> Dict:
+@ensure_annotations
+def read_yaml(path_to_yaml: Path) -> Dict:
     """reads and returns yaml file
 
     Args:
@@ -22,12 +24,12 @@ def read_yaml(path_to_yaml: str) -> Dict:
         with open(path_to_yaml) as yaml_file:
             content = yaml.safe_load(yaml_file)
             logger.info(f"yaml file: {path_to_yaml} loaded successfully")
-            return content
-
+            return ConfigBox(content)
     except Exception as e:
         logger.error(f"Error reading yaml file: {path_to_yaml}, {e}")
         raise e
 
+@ensure_annotations
 def create_directories(path_to_directories: List, verbose=True):
     """create list of directories
 
@@ -40,6 +42,7 @@ def create_directories(path_to_directories: List, verbose=True):
         if verbose:
             logger.info(f"created directory at: {path}")
 
+@ensure_annotations
 def get_size(path: str) -> str:
     """get size in KB
 
