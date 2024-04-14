@@ -1,6 +1,6 @@
 from text_summarization.constants import *
 from text_summarization.utils.common import read_yaml, create_directories
-from text_summarization.entity import DataIngestionConfig
+from text_summarization.entity import DataIngestionConfig, DataValidationConfig
 
 class ConfigurationManager:
     """
@@ -35,3 +35,19 @@ class ConfigurationManager:
             local_data_file = Path(config.local_data_file),
             unzip_dir = Path(config.unzip_dir)
         )
+    
+    def get_data_validation_config(self) -> DataValidationConfig:
+        """Get the data validation configuration
+
+        Returns:
+            DataValidationConfig: data validation configuration
+        """
+        config = self.config.data_validation
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConfig(
+            root_dir=config.root_dir,
+            status_file=config.status_file,
+            required_files=config.required_files,
+        )
+        return data_validation_config

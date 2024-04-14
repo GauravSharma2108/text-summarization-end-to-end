@@ -9,6 +9,7 @@ Perform the complete project in a notebook first, so we have everything we have 
 
 start working on the modules:
 1. data ingestion
+2. data validation
 
 
 for each of these steps, do the following
